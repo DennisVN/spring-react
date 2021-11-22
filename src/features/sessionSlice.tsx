@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export type Form = {
+export type session = {
     session: string,
     name: string,
     quadrant: string
 }
 
 export const sessionSlice = createSlice({
-    name: "session",
+    name: "addForm",
     initialState:{
-        session:null,
+        addForm:null,
     },
     reducers:{
         addForm: (state, action) => {
-            state.session = action.payload;
+            state.addForm = action.payload;
         }
     }
 })

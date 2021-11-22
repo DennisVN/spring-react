@@ -14,6 +14,7 @@ export default function MainForm() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        console.log("clicked");
 
         dispatch(addForm({
             session: session,
@@ -21,6 +22,9 @@ export default function MainForm() {
             quadrant: quadrant,
             formIsAdded: true,
         }));
+        console.log({session});
+        console.log({name});
+        console.log({quadrant});
     }
 
     return (
@@ -34,7 +38,7 @@ export default function MainForm() {
                     justifyContent: "center"
                 }}
             >
-                <form className="mainForm" onSubmit={(e) => handleSubmit(e)}>
+                <form className="mainForm" onClick={handleSubmit}>
                     <TextField  sx={{display: "flex"}} required
                     id="outlined-multiline-static-helperText"
                     label="Session"
