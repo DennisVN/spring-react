@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainForm from './components/MainForm';
+
 
 function App() {
   return (
-    <div className="App">
-      CRUD LIFE
-    </div>
+    <>
+    <MainForm />
+    </>
   );
 }
 
