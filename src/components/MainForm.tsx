@@ -9,7 +9,6 @@ export default function MainForm() {
     const [session, setSession] = useState("");
     const [name, setName] = useState("");
     const [quadrant, setQuadrant] = useState("");
-
     const dispatch = useDispatch();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -22,17 +21,14 @@ export default function MainForm() {
             quadrant: quadrant,
             formIsAdded: true,
         }));
-        console.log({session});
-        console.log({name});
-        console.log({quadrant});
     }
-
+    
     return (
         <>
         <Container>
             <Box component ="form"
                 sx={{
-                    height: "100vh", 
+                    // height: "100vh", 
                     display: "flex", 
                     flexDirection: "column",
                     justifyContent: "center"
@@ -73,7 +69,7 @@ export default function MainForm() {
                     onChange = {(e) => setQuadrant(e.target.value)} />
                     <br/>
 
-                    <Button type="submit" variant="contained">confirm</Button>
+                    <Button type="submit" variant="contained">+ Add</Button>
                 </form>
             </Box>
         </Container>
