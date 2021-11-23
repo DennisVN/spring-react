@@ -34,7 +34,6 @@ class MainTable extends Component {
             />
             </div>
         )
-
     }
 }
 const mapStateToProps = (state: { sessionSpecs: { addForm: any; }; }) => {

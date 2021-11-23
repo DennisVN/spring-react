@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export type session = {
+interface addForm {
     session: string,
     name: string,
     quadrant: string
