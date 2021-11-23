@@ -7,19 +7,19 @@ export type session = {
 }
 
 export const sessionSlice = createSlice({
-    name: "addForm",
+    name: "sessionSpecs",
     initialState:{
-        addForm:null,
+        sessionSpecs:null,
     },
     reducers:{
         addForm: (state, action) => {
-            state.addForm = action.payload;
+            state.sessionSpecs = action.payload;
         }
     }
 })
 // export actions
 export const {addForm} = sessionSlice.actions;
 // export state
-export const selectSession = (state: { session: { session: string; }; }) => state.session.session;
+export const selectSession = (state: { sessionSpecs: { sessionSpecs: string; }; }) => state.sessionSpecs.sessionSpecs;
 // export reducer itself
 export default sessionSlice.reducer;
