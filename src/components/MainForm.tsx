@@ -2,18 +2,21 @@ import { Button, Container, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import store from '../app/store';
 import { addForm } from '../features/sessionSlice';
+import store from '../store';
 
 
-export default function MainForm() {
+const MainForm: React.FC = () => {
     const [session, setSession] = useState("");
     const [name, setName] = useState("");
     const [quadrant, setQuadrant] = useState("");
+    
     const dispatch = useDispatch();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("clicked");
+        // console.log("clicked");
 
         dispatch(addForm({
             session: session,
@@ -21,6 +24,12 @@ export default function MainForm() {
             quadrant: quadrant,
             formIsAdded: true,
         }));
+
+        // console.log(sessionSpecs);
+        // console.log(session);
+        // console.log(name);
+        // console.log(quadrant);
+        // console.log(store.getState());
     }
     
     return (
@@ -29,6 +38,7 @@ export default function MainForm() {
             <Box component ="form"
                 sx={{
                     // height: "100vh", 
+                    py: 8,
                     display: "flex", 
                     flexDirection: "column",
                     justifyContent: "center"
@@ -76,3 +86,9 @@ export default function MainForm() {
         </>
     )
 }
+export default MainForm;
+
+function sessionSpecs(sessionSpecs: any) {
+    throw new Error('Function not implemented.');
+}
+

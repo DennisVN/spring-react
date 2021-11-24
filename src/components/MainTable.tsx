@@ -1,8 +1,11 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Component } from 'react';
 import { render } from 'react-dom';
-import { connect } from 'react-redux';
-import { addForm } from '../features/sessionSlice';
+// import { connect } from 'react-redux';
+import sessionSlice, { addForm } from '../features/sessionSlice';
+import { useSelector } from 'react-redux';
+// import store from '../app/store';
+
 
 // Dummy data, remove & replace with props !!! 
 
@@ -20,27 +23,50 @@ const rows = [
     { id: 3, session: '056514981651', name: 'Jean-Paul', quadrant: "Malinois", timestamp: "23-11-2021 12:00" },
 ];
 
-class MainTable extends Component {
-    render (){
-        console.log(this.props);
-        return(
-            <div style={{ height: 400, width: '100%'}}>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                checkboxSelection
-            />
-            </div>
-        )
-    }
+const MainTable: React.FC = () => {
+    // // const formData = useSelector<any, void>((state: any)  => state.sessionSpecs)
+    // const formData = store.getState(); 
+    // console.log(formData);
+
+    // console.log(this.props);
+    // console.log({addForm});
+    // console.log(store.getState());
+    // console.log(sessionSpecs)
+
+
+    return(
+        <>
+        <div>{addForm}</div>
+        {/* <div style={{ height: 400, width: '100%'}}>
+        <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+            checkboxSelection
+        />
+        </div> */}
+        </>
+    )
 }
-const mapStateToProps = (state: { sessionSpecs: { addForm: any; }; }) => {
-    return{
-        sessionSpecs: state.sessionSpecs.addForm
-    }
+// const mapStateToProps = (state: { sessionSpecs: { addForm: any; }; }) => {
+//     return{
+//         sessionSpecs: state.sessionSpecs.addForm
+//     }
+// }
+
+export default MainTable;
+
+function state(state: any, arg1: (DefaultRootState: unknown) => any) {
+    throw new Error('Function not implemented.');
 }
 
-export default connect(mapStateToProps)(MainTable)
+function getState(sessionSpecs: any): any {
+    throw new Error('Function not implemented.');
+}
+
+function sessionSpecs(sessionSpecs: any): any {
+    throw new Error('Function not implemented.');
+}
+// export default connect(mapStateToProps)(MainTable)
 

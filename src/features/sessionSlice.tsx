@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface addForm {
+export interface sessionSpecs {
+    id: number,
     session: string,
     name: string,
     quadrant: string
 }
 
-export const sessionSlice = createSlice({
+const sessionSlice = createSlice({
     name: "sessionSpecs",
     initialState:{
         sessionSpecs:null,
@@ -14,12 +15,14 @@ export const sessionSlice = createSlice({
     reducers:{
         addForm: (state, action) => {
             state.sessionSpecs = action.payload;
-        }
+        },
+
     }
 })
 // export actions
 export const {addForm} = sessionSlice.actions;
 // export state
-export const selectSession = (state: { sessionSpecs: { sessionSpecs: string; }; }) => state.sessionSpecs.sessionSpecs;
+export const selectSession = (state: { sessionSpecs: { sessionSpecs: any; }; }) => state.sessionSpecs.sessionSpecs;
 // export reducer itself
 export default sessionSlice.reducer;
+
