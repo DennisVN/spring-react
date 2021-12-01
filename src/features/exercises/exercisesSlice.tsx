@@ -1,5 +1,7 @@
 // import store from "../../app/store";
 
+import { PayloadAction } from "@reduxjs/toolkit"
+
 
 
 const initialState: any[] = [
@@ -21,7 +23,7 @@ function nextExerciseId(exercise: any[]) {
     return maxId + 1
   }
 
-export default function exercisesReducer(state = initialState, action: { type: any }) {
+export default function exercisesReducer(state = initialState, action: PayloadAction<any>, ) {
     // console.log(store.getState());
     switch (action.type) {
         case 'exercises/exerciseAdded': {
@@ -29,11 +31,14 @@ export default function exercisesReducer(state = initialState, action: { type: a
                 ...state,
                 {
                     id: nextExerciseId(state),
+                    session: "mo how vint",
+                    name: 'wuk e me dat ier ?',
+                    quadrant: 'wéeroal VTM keirl...',
                     exerciseSession: action.type
                 }
             ]
         }
         default:
-            return state
+        return state
     }
 }

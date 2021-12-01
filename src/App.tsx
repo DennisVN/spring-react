@@ -1,15 +1,22 @@
-import React from 'react';
 import './App.css';
 import MainForm from "./components/MainForm";
 import MainTable from "./components/MainTable"
 import { Provider } from "react-redux";
-// import store from "./app/store"; 
-import store from './store';
+import combinedReducers from './reducers';
+import { createStore } from 'redux';
+import initialState from './state';
+import { useSelector, useDispatch } from 'react-redux';
+import { create} from './actions';
 
 
+const store = createStore(
+  combinedReducers,
+);
+
+console.log('Initial state: ', initialState)
 
 function App() {
-  console.log('Initial state: ', store.getState())
+
   return (
     <>
     <Provider store={store}> 
